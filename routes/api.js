@@ -223,7 +223,8 @@ query.exec(function (err, doc) {
           if (err)  res.send('could not update ' + _id+err);
      //   console.log('api'+docs.replies)
         if(docs.replies.id(reply_id).delete_password==delete_password){
-          try{   docs.replies.id(reply_id).remove()
+          try{   docs.replies.id(reply_id).text= '[deleted]'
+              //.remove()
          docs.replycount--          
         docs.save(function (err, docs) {
               if (err) return res.send('could not update ' + _id+err);
